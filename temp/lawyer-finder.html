@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <!-- <link rel="stylesheet" href="aistyle.css">-->
+    <title>Find Corporate Lawyers</title>
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 10px 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header h1 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+        #sidebar {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+            z-index: 1000;
+        }
+        #sidebar.open {
+            transform: translateX(0);
+        }
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+            z-index: 999;
+            display: none;
+        }
+        .overlay.active {
+            display: block;
+        }
+
+        /* Background image styles */
+        .bg-image {
+            background-image: url('/assets/find1.png'); /* Replace with your PNG image URL */
+            background-size: cover;
+            background-position: center;
+            height: 67vh; /* Cover half of the viewport height */
+            transition: filter 0.3s ease-in-out;
+        }
+        /* Dark mode styles */
+    .dark body {
+      background-color: #1a202c; /* Dark background */
+      color: #e2e8f0; /* Light text */
+    }
+
+    .dark header {
+      background-color: #2d3748; /* Dark header */
+      color: #e2e8f0; /* Light text */
+    }
+
+    .dark .bg-white {
+      background-color: #2d3748; /* Dark card background */
+      color: #e2e8f0; /* Light text */
+    }
+
+    .dark .text-gray-800 {
+      color: #e2e8f0; /* Light text */
+    }
+
+    .dark .text-gray-600 {
+      color: #a0aec0; /* Lighter text */
+    }
+
+    .dark .shadow {
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -1px rgba(0, 0, 0, 0.5);
+    }
+
+
+        
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Header -->
+    <header class="flex justify-between items-center p-4 bg-white shadow-md">
+        <div class="flex items-center space-x-4">
+            <h1 class="text-2xl font-bold">JustEase</h1>
+            <!-- Hamburger Menu Icon -->
+            <button id="hamburgerMenu" class="text-gray-600 hover:text-gray-800">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+        <div class="flex items-center space-x-4">
+            <!-- Theme Toggle Button -->
+            <button id="themeToggle" class="text-gray-600 hover:text-gray-800">
+                <svg id="themeIcon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                </svg>
+            </button>
+            <!-- Profile Icon 
+            <button id="profileIcon" class="text-gray-600 hover:text-gray-800">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zM6 18c0-2.21 1.79-4 4-4h4c2.21 0 4 1.79 4 4v2H6v-2z"/>
+                </svg>
+            </button>-->
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <div id="sidebar" class="fixed top-0 left-0 w-64 h-full bg-white shadow-lg">
+        <div class="p-4 border-b">
+            <h3 class="text-lg font-semibold">Menu</h3>
+        </div>
+        <ul class="p-4 space-y-4">
+            <li>
+                <a href="dashboard.html" class="flex items-center space-x-4 hover:bg-gray-200 p-2 rounded">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 text-gray-600">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7" />
+                    </svg>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="legal-resource.html" class="flex items-center space-x-4 hover:bg-gray-200 p-2 rounded">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 text-gray-600">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7" />
+                    </svg>
+                    <span>Library</span>
+                </a>
+            </li>
+            <li>
+                <a href="easbot.html" class="flex items-center space-x-4 hover:bg-gray-200 p-2 rounded">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 text-gray-600">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7" />
+                    </svg>
+                    <span>AI Assistant</span>
+                </a>
+            </li>
+           
+            <li>
+                <a href="templates.html" class="flex items-center space-x-4 hover:bg-gray-200 p-2 rounded">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 text-gray-600">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7" />
+                    </svg>
+                    <span>Templates</span>
+                </a>
+            </li>
+            <li>
+                <a href="news.html" class="flex items-center space-x-4 hover:bg-gray-200 p-2 rounded">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 text-gray-600">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7" />
+                    </svg>
+                    <span>News Updates</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+
+   <!-- Drawer -->
+  <script src="https://unpkg.com/lucide@latest"></script> <!-- Load Lucide Icons -->
+  <div id="drawer" class="drawer fixed top-0 right-0 w-64 h-full bg-white shadow-lg transform translate-x-full">
+    <div class="p-4 border-b">
+      <h3 class="text-lg font-semibold">Account</h3>
+    </div>
+    <ul class="p-4 space-y-4">
+      <!-- My Profile -->
+      <li class="flex items-center space-x-4">
+        <i data-lucide="user" class="w-6 h-6 text-gray-600"></i>
+        <span>My Profile</span>
+      </li>
+  
+      <!-- Change Password -->
+      <li class="flex items-center space-x-4">
+        <i data-lucide="key" class="w-6 h-6 text-gray-600"></i>
+        <span>Change Password</span>
+      </li>
+  
+      <!-- Logout -->
+      <li class="flex items-center space-x-4">
+        <i data-lucide="log-out" class="w-6 h-6 text-gray-600"></i>
+        <span>Logout</span>
+      </li>
+    </ul>
+  </div>
+
+   <!-- Background Image Section -->
+   <div class="bg-image" id="backgroundImage"></div>
+
+   <main class="container mx-auto p-6">
+       <!-- Title Section -->
+       <div class="bg-white shadow rounded-lg p-5 mb-6">
+           <h2 class="text-lg font-semibold text-gray-800">
+               <span class="text-orange-500">📍</span> Connect to Nearest Corporate Lawyers
+           </h2>
+           <p class="text-gray-500 text-sm">Find experienced legal professionals in your area</p>
+           <div class="mt-4 flex gap-2 items-center">
+               <button onclick="getCurrentLocation()" class="px-4 py-2 bg-blue-50 text-blue-600 font-medium rounded-lg shadow hover:bg-blue-100">Use Current Location</button>
+               <p class="text-gray-700">OR</p>
+               <input 
+                 type="text" 
+                 id="location" 
+                 placeholder="Enter Location (e.g., Bangalore)" 
+                 class="w-full border border-gray-300 rounded-lg px-4 py-2 text-gray-700 focus:outline-none focus:ring focus:ring-blue-200">
+               <button onclick="useManualLocation()" class="px-4 py-2 bg-black text-white font-medium rounded-lg shadow hover:bg-gray-800">Search</button>
+           </div>
+           <p id="status" class="text-red-500 mt-2"></p>
+           <div id="result"></div>
+           <ul id="lawyers-list" class="grid gap-4 mt-4"></ul>
+           <button id="see-more-btn" class="see-more px-4 py-2 bg-blue-500 text-white rounded-lg" onclick="showMoreLawyers()" style="display:none;">See More</button>
+       </div>
+   </main>
+
+   <script src="https://unpkg.com/lucide@latest"></script>
+   <script>
+       lucide.createIcons(); // Initialize Lucide Icons
+
+       let allLawyers = [];
+       let displayedCount = 0;
+       const batchSize = 10;
+
+       // Clear the input field on page load
+       window.onload = function() {
+           document.getElementById('location').value = '';
+       };
+
+       function getCurrentLocation() {
+           if (navigator.geolocation) {
+               navigator.geolocation.getCurrentPosition(showPosition, showError);
+           } else {
+               document.getElementById("status").innerHTML = "Geolocation is not supported by this browser.";
+           }
+       }
+
+       function useManualLocation() {
+           const location = document.getElementById("location").value;
+           if (location) {
+               fetchLawyersByLocation(location);
+           } else {
+               document.getElementById("status").innerHTML = "Please enter a location.";
+           }
+       }
+
+       function showPosition(position) {
+           const lat = position.coords.latitude;
+           const lng = position.coords.longitude;
+
+           // Reverse geocode to get the location name
+           fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lng}&localityLanguage=en`)
+               .then(response => response.json())
+               .then(data => {
+                   const locationName = data.locality || data.city || data.principalSubdivision || "Current Location";
+                   document.getElementById("location").value = locationName; // Update the input field
+                   fetchLawyers(lat, lng);
+               })
+               .catch(error => {
+                   console.error("Error during reverse geocoding:", error);
+                   document.getElementById("status").innerHTML = "Error retrieving location name.";
+               });
+       }
+
+       function fetchLawyers(lat, lng) {
+           document.getElementById("status").innerHTML = "Searching for corporate lawyers...";
+           fetch(`http://127.0.0.1:5000/find_lawyers?lat=${lat}&lng=${lng}`)
+               .then(response => response.json())
+               .then(data => {
+                   allLawyers = data.lawyers || [];
+                   displayedCount = 0;
+                   displayResults();
+               })
+               .catch(error => document.getElementById("status").innerHTML = "Error fetching lawyers.");
+       }
+
+       function fetchLawyersByLocation(location) {
+           document.getElementById("status").innerHTML = "Searching for: " + location;
+           fetch(`http://127.0.0.1:5000/find_lawyers_by_location?location=${encodeURIComponent(location)}`)
+               .then(response => {
+                   console.log("Response status:", response.status); // Log the response status
+                   return response.json();
+               })
+               .then(data => {
+                   console.log("Data received:", data); // Log the received data
+                   allLawyers = data.lawyers || [];
+                   displayedCount = 0;
+                   displayResults();
+               })
+               .catch(error => {
+                   console.error("Error fetching lawyers:", error); // Log the error
+                   document.getElementById("status").innerHTML = "Error fetching lawyers.";
+               });
+       }
+
+       function displayResults() {
+           const lawyersList = document.getElementById("lawyers-list");
+           const resultText = document.getElementById("result");
+           const seeMoreBtn = document.getElementById("see-more-btn");
+           lawyersList.innerHTML = "";
+
+           if (allLawyers.length > 0) {
+               resultText.innerHTML = '<strong style="color:green;">Corporate Lawyers Found:</strong>';
+               const lawyersToShow = allLawyers.slice(0, displayedCount + batchSize);
+               displayedCount = lawyersToShow.length;
+
+               lawyersToShow.forEach((lawyer, index) => {
+                   const li = document.createElement("li");
+                   li.classList.add("bg-white", "shadow-sm", "rounded-lg", "p-4", "flex", "justify-between", "items-center");
+                   li.innerHTML = `
+                       <div>
+                           <h3 class="text-lg font-semibold text-gray-800">${index + 1}. ${lawyer.name}</h3>
+                           <p class="text-sm text-gray-500">${lawyer.address}</p>
+                           ${lawyer.website ? `<a href="${lawyer.website}" target="_blank" class="text-blue-500">Visit Website</a><br>` : ''}
+                           <button onclick="window.open('https://www.google.com/maps/dir/?api=1&destination=${lawyer.latitude},${lawyer.longitude}', '_blank')" class="mt-2 bg-blue-500 text-white py-1 px-3 rounded">Directions</button>
+                       </div>
+                   `;
+                   lawyersList.appendChild(li);
+               });
+
+               if (displayedCount < allLawyers.length) {
+                   seeMoreBtn.style.display = "block";
+               } else {
+                   seeMoreBtn.style.display = "none";
+               }
+
+               document.getElementById("status").innerHTML = "Search completed!";
+           } else {
+               resultText.innerHTML = '<strong style="color:red;">No corporate lawyers found.</strong>';
+               document.getElementById("status").innerHTML = "No lawyers found for this location.";
+           }
+       }
+
+       function showMoreLawyers() {
+           displayResults();
+       }
+
+       function showError(error) {
+           document.getElementById("status").innerHTML = "Error retrieving location.";
+       }
+
+      // Overlay functionality
+      const overlay = document.getElementById('overlay');
+        const hamburgerMenu = document.getElementById('hamburgerMenu');
+        const sidebar = document.getElementById('sidebar');
+
+        hamburgerMenu.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+            overlay.classList.toggle('active');
+        });
+
+        overlay.addEventListener('click', () => {
+            sidebar.classList.remove('open');
+            overlay.classList.remove('active');
+        });
+
+        // Toggle Drawer
+    const profileIcon = document.getElementById('profileIcon');
+    const drawer = document.getElementById('drawer');
+
+    profileIcon.addEventListener('click', (event) => {
+      event.stopPropagation(); // Prevent triggering document's click listener
+      drawer.classList.toggle('translate-x-full');
+    });
+
+    document.addEventListener('click', (event) => {
+      if (!drawer.contains(event.target) && !event.target.closest('#profileIcon')) {
+        drawer.classList.add('translate-x-full');
+      }
+    });
+     // Toggle Dark/Light Theme
+     const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const body = document.body;
+
+    themeToggle.addEventListener('click', () => {
+      body.classList.toggle('dark');
+      if (body.classList.contains('dark')) {
+        themeIcon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />`;
+      } else {
+        themeIcon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />`;
+      }
+    });
+   </script>
+</body>
+</html>

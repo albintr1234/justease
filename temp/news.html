@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corporate Law News</title>
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #232328;
+            --secondary-color: #1E1F20;
+            --secondary-hover-color: #333537;
+            --focus-color: #282A2C;
+            --focus-hover-color: #37393B;
+            --button-hover-color: #2f3030;
+            --text-color: #fff;
+            --text-secondary-color: #D8D8D8;
+            --placeholder-color: #ABAFB3;
+            --transition-speed: 0.3s;
+        }
+        .light_mode {
+            --primary-color: #eef2f6;
+            --secondary-color: #ffffff;
+            --text-color: #000;
+            --secondary-hover-color: #DDE3EA;
+            --focus-color: #ffffff;
+            --focus-hover-color: #E1E6ED;
+            --button-hover-color: #E9ECF1;
+        }
+        body {
+            font-family: "Open Sans", sans-serif;
+            background: var(--primary-color);
+            color: var(--text-color);
+            margin: 0;
+            transition: background var(--transition-speed) ease, color var(--transition-speed) ease;
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start; /* Change to flex-start to align items to the left */
+            padding: 10px 20px;
+            background-color: var(--secondary-color);
+        }
+        .navbar__button {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background: var(--focus-color);
+            color: var(--text-color);
+            cursor: pointer;
+            transition: background var(--transition-speed) ease;
+            margin-left: 10px; /* Add some space between title and buttons */
+        }
+        .navbar__button:hover {
+            background: var(--focus-hover-color);
+        }
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 60px;
+            bottom: 0;
+            width: 280px;
+            background: var(--secondary-color);
+            padding: 20px;
+            transform: translateX(-100%);
+            transition: transform var(--transition-speed) ease;
+            z-index: 999;
+            overflow-y: auto;
+        }
+        .sidebar.active {
+            transform: translateX(0);
+        }
+        .sidebar__header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .sidebar__button {
+            padding: 10px;
+            background: var(--focus-color);
+            color: var(--text-color);
+            border-radius: 5px;
+            transition: background var(--transition-speed) ease;
+            display: block;
+            margin-bottom: 10px;
+        }
+        .sidebar__button:hover {
+            background: var(--focus-hover-color);
+        }
+        .container {
+            max-width: 1400px;
+            margin: 20px auto;
+            padding: 20px;
+            background: var(--secondary-color);
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 100px; /* Space for navbar */
+        }
+        h1 {
+            text-align: center;
+        }
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+        .article {
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background: var(--focus-color);
+            transition: background var(--transition-speed) ease;
+        }
+        .article h2 {
+            margin: 0;
+            font-size: 1.5em;
+        }
+        .article p {
+            margin: 5px 0;
+        }
+        .article a {
+            text-decoration: none;
+            color: #007BFF;
+        }
+        .error {
+            color: red;
+            text-align: center;
+        }
+        .content {
+            transition: margin-left var(--transition-speed) ease;
+            padding: 20px;
+        }
+        .content.sidebar-active {
+            margin-left: 280px;
+        }
+        .navbar__title {
+            font-size: 1.5rem; /* Reduced font size */
+            font-weight: bold;
+            color: var(--text-color);
+            margin-right: 10px; /* Space between title and icon */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+
+    <div class="navbar">
+        <h1 class="navbar__title">JustEase</h1>
+        <button class="navbar__button" id="sidebarToggle">☰</button>
+        <button class="navbar__button" id="themeToggler">🌙</button>
+    </div>
+
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar__header">
+            <h2>Menu</h2>
+            <button class="sidebar__button" id="closeSidebar">X</button>
+        </div>
+        <a href="dashboard.html" class="sidebar__button">Dashboard</a>
+        <a href="legal-resource.html" class="sidebar__button">Library</a>
+        <a href="easbot.html" class="sidebar__button">AI Chat Assistant</a>
+        <a href="lawyer-finder.html" class="sidebar__button">Lawyer Finder</a>
+        <a href="templates.html" class="sidebar__button">Templates</a>
+    </div>
+
+    <div class="content" id="content">
+        <div class="container">
+            <h1>Corporate Law News</h1>
+            <div class="news-grid" id="news-container"></div>
+            <div class="error" id="error-message"></div>
+        </div>
+    </div>
+
+    <script>
+        async function fetchCorporateLawNews() {
+            const response = await fetch('http://localhost:5000/corporate-law-news', {
+                method: 'GET',
+                headers: {
+                    'X-Api-Key': '8bfe418c7d034af5b101ef0b5263b303'
+                }
+            });
+
+            if (!response.ok) {
+                const errorData = await response.json();
+                document.getElementById('error-message').innerText = errorData.error || 'An error occurred';
+                return;
+            }
+
+            const data = await response.json();
+            const newsContainer = document.getElementById('news-container');
+
+            if (data.corporate_law_news) {
+                newsContainer.innerHTML = ""; // Clear previous articles
+                data.corporate_law_news.forEach(article => {
+                    const articleDiv = document.createElement('div');
+                    articleDiv.classList.add('article');
+                    articleDiv.innerHTML = `
+                        <h2>${article.title}</h2>
+                        <p><strong>Source:</strong> ${article.source}</p>
+                        <p><strong>Published At:</strong> ${new Date(article.publishedAt).toLocaleString()}</p>
+                        <p>${article.description}</p>
+                        <a href="${article.url}" target="_blank">Read more</a>
+                    `;
+                    newsContainer.appendChild(articleDiv);
+                });
+            } else {
+                document.getElementById('error-message').innerText = 'No news articles found.';
+            }
+        }
+
+        window.onload = fetchCorporateLawNews;
+
+        document.getElementById('sidebarToggle').onclick = function() {
+            document.getElementById('sidebar').classList.toggle('active');
+            document.getElementById('content').classList.toggle('sidebar-active');
+        };
+
+        document.getElementById('closeSidebar').onclick = function() {
+            document.getElementById('sidebar').classList.remove('active');
+            document.getElementById('content').classList.remove('sidebar-active');
+        };
+
+        document.getElementById('themeToggler').onclick = function() {
+            document.body.classList.toggle('light_mode');
+        };
+    </script>
+
+</body>
+</html>

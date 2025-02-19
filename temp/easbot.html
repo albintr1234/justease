@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/styles/aistyle.css">
+    <title> Legal Chatbot</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar__left">
+            <button class="navbar__button" id="sidebarToggle">
+                <i class='bx bx-menu'></i>
+            </button>
+            <h3 class="navbar__logo">Easebot</h3>
+        </div>
+        <div class="navbar__right">
+            <button class="navbar__button" id="themeToggler">
+                <i class='bx bx-sun'></i>
+            </button>
+        </div>
+    </nav>
+    
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar__header">
+            <h4>Chat History</h4>
+            <button class="sidebar__button" id="newChatButton">
+                <i class='bx bx-plus'></i> New Chat
+            </button>
+            <a href="dashboard.html" class="sidebar__button">Dashboard</a>
+            <a href="legal-resource.html" class="sidebar__button">Library</a>
+            <a href="lawyer-finder.html" class="sidebar__button">Lawyer Finder</a>
+            <a href="templates.html" class="sidebar__button">Templates</a>
+            <a href="news.html" class="sidebar__button">News Updates</a>
+
+        </div>
+    </aside>
+    
+    <main class="main-content">
+        <header class="header">
+            <div class="header__title">
+                <h1>Hello, There! How can I assist you with corporate law today?</h1>
+            </div>
+            <div class="suggests">
+                <div class="suggests__item">
+                    <p class="suggests__item-text">What is the process for company incorporation?</p>
+                    <div class="suggests__item-icon">
+                        <i class='bx bx-building'></i>
+                    </div>
+                </div>
+                <div class="suggests__item">
+                    <p class="suggests__item-text">What are the duties of a company director?</p>
+                    <div class="suggests__item-icon">
+                        <i class='bx bx-user'></i>
+                    </div>
+                </div>
+                <div class="suggests__item">
+                    <p class="suggests__item-text">How to file annual returns for a company?</p>
+                    <div class="suggests__item-icon">
+                        <i class='bx bx-file'></i>
+                    </div>
+                </div>
+                <div class="suggests__item">
+                    <p class="suggests__item-text">What are the key features of the Companies Act 2013?</p>
+                    <div class="suggests__item-icon">
+                        <i class='bx bx-book'></i>
+                    </div>
+                </div>
+            </div>
+        </header>
+    
+        <section class="chats" id="chatContainer"></section>
+    
+        <section class="prompt">
+            <form class="prompt__form" novalidate>
+                <div class="prompt__input-wrapper">
+                    <textarea 
+                        class="prompt__form-input" 
+                        placeholder="Ask something about corporate law..." 
+                        rows="1"
+                        required
+                    ></textarea>
+                    <button type="submit" class="prompt__form-button" id="sendButton">
+                        <i class='bx bx-send'></i>
+                    </button>
+                    <button type="button" class="prompt__form-button" id="deleteButton">
+                        <i class='bx bx-trash'></i>
+                    </button>
+                </div>
+            </form>
+            <p class="prompt__disclaim">
+                This chatbot provides information related to corporate law in India. For specific legal advice, consult a qualified professional.
+            </p>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="/script/aiscript.js"></script>
+</body>
+</html>

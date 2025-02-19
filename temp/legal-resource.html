@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal Resource Library</title>
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="..styles/legal.css">
+    <style>
+        /* Animations */
+        .court-button {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .court-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .description-container {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .description-container.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-white font-sans text-gray-800">
+    <div class="wrapper">
+
+        <!-- Overlay -->
+        <div class="overlay" id="overlay"></div>
+
+        <!-- Header -->
+        <header id="header" class="flex justify-between items-center p-4 bg-white shadow-md">
+            <div class="flex items-center space-x-4">
+                <h1 class="text-2xl font-bold">JustEase</h1>
+                <!-- Hamburger Menu Icon -->
+                <button id="hamburgerMenu" class="text-gray-600 hover:text-gray-800">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+            <div class="flex items-center space-x-4">
+                <!-- Theme Toggle Button -->
+                <button id="themeToggle" class="text-gray-600 hover:text-gray-800">
+                    <svg id="themeIcon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                    </svg>
+                </button>
+            </div>
+        </header>
+    
+        <!-- Sidebar -->
+        <div id="sidebar" class="fixed top-0 left-0 w-64 h-full bg-white shadow-lg">
+            <div class="p-4 border-b">
+                <h3 class="text-lg font-semibold">Menu</h3>
+            </div>
+            <ul class="p-4 space-y-4">
+                <li>
+                    <a href="dashboard.html" class="flex items-center space-x-4 hover:bg-gray-200 p-2 rounded">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 text-gray-600">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7" />
+                        </svg>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="easbot.html" class="flex items-center space-x-4 hover:bg-gray-200 p-2 rounded">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 text-gray-600">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7" />
+                        </svg>
+                        <span>AI Assistant</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="lawyer-finder.html" class="flex items-center space-x-4 hover:bg-gray-200 p-2 rounded">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 text-gray-600">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7" />
+                        </svg>
+                        <span>Lawyer Finder</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="templates.html" class="flex items-center space-x-4 hover:bg-gray-200 p-2 rounded">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 text-gray-600">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7" />
+                        </svg>
+                        <span>Templates</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="news.html" class="flex items-center space-x-4 hover:bg-gray-200 p-2 rounded">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 text-gray-600">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7" />
+                        </svg>
+                        <span>News Updates</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    
+        <!-- Description Section -->
+        <div class="description-container container mx-auto mt-10 p-4 bg-white shadow-md rounded-lg" style="width: 1500px;">
+            <div class="flex flex-col md:flex-row items-center" onload="fadeIn()">
+                <div class="flex-1 md:pr-6">
+                    <h3 class="text-xl font-semibold mb-2">About Companies Act 2013</h3>
+                    <p class="text-sm leading-relaxed">
+                        The Companies Act 2013 governs the incorporation, responsibilities, and functioning of companies in India.
+                        It aims to improve corporate governance, simplify regulations, and protect stakeholders. The Act has introduced
+                        key reforms, including provisions for corporate social responsibility and enhanced accountability measures.
+                    </p>
+                </div>
+                <img src="/assets/company.png" alt="Companies Act 2013" class="w-full md:w-1/3 h-48 rounded-lg mt-4 md:mt-0">
+            </div>
+        </div>
+
+        <!-- High Courts Section -->
+        <h3 class="text-center text-xl font-semibold text-blue-600 my-6">All High Courts</h3>
+        <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 px-4 pb-8">
+            <!-- High Court Cards -->
+            <a href="cases.html?court=Delhi" class="court-button text-center bg-white p-4 rounded-lg shadow-md">
+                <img src="/assets/court.png" alt="Delhi High Court" class="mx-auto w-12 h-12 mb-2">
+                <span class="font-medium">Delhi High Court</span>
+            </a>
+            <a href="cases.html?court=Allahabad" class="court-button text-center bg-white p-4 rounded-lg shadow-md">
+                <img src="/assets/court.png" alt="Allahabad High Court" class="mx-auto w-12 h-12 mb-2">
+                <span class="font-medium">Allahabad High Court</span>
+            </a>
+            <a href="cases.html?court=Bombay" class="court-button text-center bg-white p-4 rounded-lg shadow-md">
+                <img src="/assets/court.png" alt="Bombay High Court" class="mx-auto w-12 h-12 mb-2">
+                <span class="font-medium">Bombay High Court</span>
+            </a>
+            <a href="cases.html?court=Karnataka" class="court-button text-center bg-white p-4 rounded-lg shadow-md">
+                <img src="/assets/court.png" alt="Karnataka High Court" class="mx-auto w-12 h-12 mb-2">
+                <span class="font-medium">Karnataka High Court</span>
+            </a>
+            <a href="cases.html?court=Calcutta" class="court-button text-center bg-white p-4 rounded-lg shadow-md">
+                <img src="/assets/court.png" alt="Calcutta High Court" class="mx-auto w-12 h-12 mb-2">
+                <span class="font-medium">Calcutta High Court</span>
+            </a>
+            <a href="cases.html?court=Madhya Pradesh" class="court-button text-center bg-white p-4 rounded-lg shadow-md">
+                <img src="/assets/court.png" alt="Madhya Pradesh High Court" class="mx-auto w-12 h-12 mb-2">
+                <span class="font-medium">Madhya Pradesh High Court</span>
+            </a>
+            <a href="cases.html?court=Punjab and Haryana" class="court-button text-center bg-white p-4 rounded-lg shadow-md">
+                <img src="/assets/court.png" alt="Punjab and Haryana High Court" class="mx-auto w-12 h-12 mb-2">
+                <span class="font-medium">Punjab and Haryana High Court</span>
+            </a>
+            <a href="cases.html?court=Telangana" class="court-button text-center bg-white p-4 rounded-lg shadow-md">
+                <img src="/assets/court.png" alt="Telangana High Court" class="mx-auto w-12 h-12 mb-2">
+                <span class="font-medium">Telangana High Court</span>
+            </a>
+        </div>
+        
+        <!-- Drawer -->
+        <div id="drawer" class="drawer fixed top-0 right-0 w-64 h-full bg-white shadow-lg transform translate-x-full">
+            <div class="p-4 border-b">
+                <h3 class="text-lg font-semibold">Account</h3>
+            </div>
+            <ul class="p-4 space-y-4">
+                <!-- My Profile -->
+                <li class="flex items-center space-x-4">
+                    <i data-lucide="user" class="w-6 h-6 text-gray-600"></i>
+                    <span>My Profile</span>
+                </li>
+                <!-- Change Password -->
+                <li class="flex items-center space-x-4">
+                    <i data-lucide="key" class="w-6 h-6 text-gray-600"></i>
+                    <span>Change Password</span>
+                </li>
+                <!-- Logout -->
+                <li class="flex items-center space-x-4">
+                    <i data-lucide="log-out" class="w-6 h-6 text-gray-600"></i>
+                    <span>Logout</span>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- JavaScript -->
+        <script src="../script/scripts.js"></script>
+        <script src="https://unpkg.com/lucide@latest"></script> <!-- Load Lucide Icons -->
+        <script>
+            lucide.createIcons(); // Initialize Lucide Icons
+            
+            // Overlay functionality
+            const overlay = document.getElementById('overlay');
+            const hamburgerMenu = document.getElementById('hamburgerMenu');
+            const sidebar = document.getElementById('sidebar');
+            
+            hamburgerMenu.addEventListener('click', () => {
+                sidebar.classList.toggle('open');
+                overlay.classList.toggle('active');
+            });
+            
+            overlay.addEventListener('click', () => {
+                sidebar.classList.remove('open');
+                overlay.classList.remove('active');
+            });
+
+            // Fade-in effect for description container
+            window.onload = function() {
+                const descriptionContainer = document.querySelector('.description-container');
+                descriptionContainer.classList.add('visible');
+            };
+
+            // Toggle Dark/Light Theme
+            // const body = document.body;
+            
+            // this is for dark modes 
+            // const themeIcon = document.getElementById('themeIcon');
+            // const themeToggle = document.getElementById('themeToggle');
+            // function toggleTheme() {
+            //     document.body.classList.toggle("light_mode");
+                
+            //     console.log(localStorage.getItem("theme"));
+                
+            //     localStorage.setItem("theme", document.body.classList.contains("light_mode") ? "light" : "dark");
+                
+            // }
+            // // this function is to check if the data in localstorage is light or dark
+            // function initialize() {
+            //     // Load saved theme
+            //     const savedTheme = localStorage.getItem("theme");
+            //     if (savedTheme === "light") {
+            //         document.body.classList.add("light_mode");
+            //     }
+            // }
+        </script>
+    </div>
+</body>
+</html>
